@@ -34,5 +34,7 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="module" module-name="Assignment8" scope="TEST" />
+    <orderEntry type="module" module-name="Assignment8" />
   </component>
 </module>
