@@ -3,6 +3,9 @@ package com.coderscampus.numbers.service;
 import com.coderscampus.assignment.Assignment8;
 import com.coderscampus.numbers.domain.NumberTaskCount;
 import com.coderscampus.numbers.domain.NumberTaskMinMax;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -12,14 +15,14 @@ import java.util.concurrent.atomic.AtomicIntegerArray;
 public class NumberService {
     public void findMinAndMax(AtomicIntegerArray globalExtremes) throws ExecutionException, InterruptedException {
         Assignment8 assignment = new Assignment8();
-        Future<Integer[]>[] futures = new Future[1000];
+        List<Future<Integer[]>> futures = new ArrayList<>();
         Integer[] extremes;
         ExecutorService executorService = Executors.newCachedThreadPool();
         for (int i = 0; i < 1000; i++) {
-            futures[i] = executorService.submit(new NumberTaskMinMax(assignment));
+            futures.add(i, executorService.submit(new NumberTaskMinMax(assignment)));
         }
         for (int i = 0; i < 1000; i++) {
-            extremes = futures[i].get();
+            extremes = futures.get(i).get();
             compareWithGlobals(extremes, globalExtremes);
         }
         System.out.println("Global Min : " + globalExtremes.get(0) + " and Max : " + globalExtremes.get(1));
@@ -39,13 +42,13 @@ public class NumberService {
         Assignment8 assignment = new Assignment8();
         AtomicIntegerArray stats = new AtomicIntegerArray(new int[globalExtremes.get(1) - globalExtremes.get(0) + 1]);
         ExecutorService executorService = Executors.newCachedThreadPool();
-        Future<Integer[]>[] futures = new Future[1000];
+        List<Future<Integer[]>> futures = new ArrayList<>();
         for (int i = 0; i < 1000; i++) {
-            futures[i] = executorService.submit(new NumberTaskCount(assignment, globalExtremes));
+            futures.add(i, executorService.submit(new NumberTaskCount(assignment, globalExtremes)));
 
         }
         for (int i = 0; i < 1000; i++) {
-            Integer[] taskStats = futures[i].get();
+            Integer[] taskStats = futures.get(i).get();
             for (int j = 0; j < stats.length(); j++) {
                 stats.set(j, stats.addAndGet(j, taskStats[j]));
             }
