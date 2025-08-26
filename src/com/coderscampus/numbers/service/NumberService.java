@@ -3,7 +3,6 @@ package com.coderscampus.numbers.service;
 import com.coderscampus.assignment.Assignment8;
 import com.coderscampus.numbers.domain.NumberTaskCount;
 import com.coderscampus.numbers.domain.NumberTaskMinMax;
-
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -19,7 +18,6 @@ public class NumberService {
         for (int i = 0; i < 1000; i++) {
             futures[i] = executorService.submit(new NumberTaskMinMax(assignment));
         }
-
         for (int i = 0; i < 1000; i++) {
             extremes = futures[i].get();
             compareWithGlobals(extremes, globalExtremes);
