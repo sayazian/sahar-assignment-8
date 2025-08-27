@@ -6,10 +6,12 @@
       <list>
         <option value="$PROJECT_DIR$/../Assignment8/Assignment8/pom.xml" />
         <option value="$PROJECT_DIR$/../Assignment8/pom.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/../Assignment8/pom.xml" />
         <option value="$PROJECT_DIR$/Assignment8/pom.xml" />
       </set>
     </option>

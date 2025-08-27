@@ -9,10 +9,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Assignment8" />
+        <module name="Assignment8 (1)" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="Assignment8" target="17" />
       <module name="Assignment8 (1) (coderscampus)" target="17" />
       <module name="Assignment8 (1) (org.example)" target="1.8" />
       <module name="Assignment8 (2) (coderscampus)" target="17" />
