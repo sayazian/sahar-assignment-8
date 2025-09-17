@@ -1,4 +1,4 @@
-package com.coderscampus.numbers.domain;
+package com.coderscampus.assignment.utils;
 
 import com.coderscampus.assignment.Assignment8;
 import java.util.Arrays;

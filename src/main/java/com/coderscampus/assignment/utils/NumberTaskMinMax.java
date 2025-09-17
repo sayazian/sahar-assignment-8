@@ -1,4 +1,4 @@
-package com.coderscampus.numbers.domain;
+package com.coderscampus.assignment.utils;
 
 import com.coderscampus.assignment.Assignment8;
 import java.util.Collections;
@@ -15,7 +15,6 @@ public class NumberTaskMinMax implements Callable<Integer[]> {
     public Integer[] call() {
         Integer[] extremes = new Integer[2];
         List<Integer> numbers = assignment.getNumbers();
-        System.out.println(numbers);
         extremes[0] = Collections.min(numbers);
         extremes[1] = Collections.max(numbers);
         return extremes;

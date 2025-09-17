@@ -1,8 +1,8 @@
-package com.coderscampus.numbers.service;
+package com.coderscampus.assignment.service;
 
 import com.coderscampus.assignment.Assignment8;
-import com.coderscampus.numbers.domain.NumberTaskCount;
-import com.coderscampus.numbers.domain.NumberTaskMinMax;
+import com.coderscampus.assignment.utils.NumberTaskCount;
+import com.coderscampus.assignment.utils.NumberTaskMinMax;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +45,6 @@ public class NumberService {
         List<Future<Integer[]>> futures = new ArrayList<>();
         for (int i = 0; i < 1000; i++) {
             futures.add(i, executorService.submit(new NumberTaskCount(assignment, globalExtremes)));
-
         }
         for (int i = 0; i < 1000; i++) {
             Integer[] taskStats = futures.get(i).get();
@@ -54,7 +53,7 @@ public class NumberService {
             }
         }
         for (int i = 0; i < stats.length(); i++) {
-            System.out.println(i + globalExtremes.get(0) + "= " + stats.get(i));
+            System.out.println(i + globalExtremes.get(0) + " = " + stats.get(i));
         }
         executorService.shutdown();
     }
